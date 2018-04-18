@@ -1,4 +1,4 @@
-__all__ = ['sdk']
-
-import sdk
+from sdk import vms, hosts
 import utils
+
+__all__ = ['hosts', 'vms']
