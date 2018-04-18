@@ -1,20 +1,30 @@
 #!/usr/bin/env python
 
 import ovirt_helpers as oh
+from ovirt_helpers.sdk.vms import method_using_hosts as direct_import
 
 # you can use anything you want
 
 # something from hosts:
-oh.sdk.hosts.get_hosts()
+oh.hosts.get_hosts()
 
 # no problem with cycle import
-oh.sdk.hosts.method_using_vms()
+oh.hosts.method_using_vms()
 
 # something from vms:
-oh.sdk.vms.get_vms()
+oh.vms.get_vms()
 
 # no problem with cycle import
-oh.sdk.vms.method_using_hosts()
+oh.vms.method_using_hosts()
 
 # usage of utils
-oh.sdk.vms.method_using_utils("Hi ovirt helper")
+oh.vms.method_using_utils("Hi ovirt helper")
+
+#lsvaty
+oh.utils.samplers.timeout_sampler("5")
+
+# import ignoring sdk
+oh.vms.method_using_hosts()
+
+# direct import
+direct_import()
